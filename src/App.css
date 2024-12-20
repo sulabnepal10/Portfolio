@@ -54,7 +54,7 @@ a:hover {
 }
 
 img {
-  width: 100%;
+  width: 70%;
   height: auto;
 }
 
@@ -234,10 +234,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;
-  background-image: url('./assets/img/banner-bg.png');
+  background-image: url('./assets/img/sunset-landscape.jpg');
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
+  opacity: 0.9;
 }
 .banner .tagline {
   font-weight: 700;
@@ -283,8 +284,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-left: 25px;
 }
 .banner img {
+ width: 75%;
   animation: updown 3s linear infinite;
 }
+
 @keyframes updown {
     0% {
         transform: translateY(-20px);
@@ -301,6 +304,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 /************ Skills Css ************/
+/************ Skills CSS ************/
 .skill {
   padding: 0 0 50px 0;
   position: relative;
@@ -339,6 +343,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 40%;
   z-index: -4;
 }
+
+
 
 /************ Projects Css ************/
 .project {
@@ -383,6 +389,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   transition: 0.3s ease-in-out;
   text-align: center;
   z-index: 0;
+  cursor: pointer;
 }
 .project .nav.nav-pills .nav-link::before {
     content: "";
@@ -398,9 +405,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .project .nav.nav-pills .nav-link.active::before {
     width: 100% !important;
 }
-.project .nav.nav-pills .nav-link.active {
-    border: 1px solid rgba(255, 255, 255, 1);
-}
+
 .nav-link#projects-tabs-tab-first {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 55px 0px 0px 55px;
@@ -413,6 +418,40 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0 55px 55px 0;
 }
+.proj-txtx h4.project-title,
+.proj-txtx span.project-description {
+  color: white; /* Change title and description color to white */
+}
+
+.image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-image {
+  max-width: 90%;
+  max-height: 125%;
+  border: 5px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.proj-imgbx {
+  transition: transform 0.2s ease-in-out;
+}
+
+.proj-imgbx:hover {
+  transform: scale(1.05);
+}
+
 .proj-imgbx {
   position: relative;
   border-radius: 30px;
@@ -465,10 +504,15 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   right: 0;
   z-index: -4;
 }
+.hAfuOK .card{
+  width:100%;
+  margin-left:50%;
+}
+
 
 /************ Projects Css ************/
 .contact {
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  background: linear-gradient(51deg, #AA367C -5.91%, #2f00f7 111.58%);
   padding: 60px 0 200px 0;
 }
 .contact img {
@@ -515,6 +559,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-radius: 0;
   position: relative;
   transition: 0.3s ease-in-out;
+  border-radius: 20px;
 }
 .contact form button span {
   z-index: 1;
@@ -533,9 +578,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   left: 0;
   z-index: 0;
   transition: 0.3s ease-in-out;
+  border-radius: 20px;
 }
 .contact form button:hover::before {
   width: 100%;
+}
+.lottie-animation {
+  width: 91% !important;
+  
 }
 
 /************ Footer Css ************/
@@ -545,6 +595,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  
 }
 .newsletter-bx {
   background: #FFFFFF;
@@ -607,7 +658,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-radius: 18px;
 }
 .footer img {
-  width: 26%;
+  width: 22%;
+  border-radius: 30%;
+  margin-top: 3%;
 }
 .footer p {
   font-weight: 400;
@@ -615,4 +668,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #B8B8B8;
   letter-spacing: 0.5px;
   margin-top: 20px;
+}
+@media (max-width: 1024px) {
+  .project .nav.nav.nav-pills .nav-link {
+    font-size: 14px;
+  }
+
+  
 }

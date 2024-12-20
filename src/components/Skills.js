@@ -34,26 +34,41 @@ export const Skills = () => {
             <div className="row">
                 <div className="col-12">
                     <div className="skill-bx wow zoomIn">
-                        <h2>Skills</h2>
-                        <p>I am an Electronics,Communication and Information Engineer<br></br> I am working on becoming a full stack web developer!!!</p>
+                        <h2>About Me!</h2>
+                        <p> I am a Full Stack Web Developer with over 2 years of experience in Web Development</p>
                         <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
-                            <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Web Development</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter2} alt="Image" />
-                                <h5>Brand Identity</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter3} alt="Image" />
-                                <h5>Logo Design</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Web Development</h5>
-                            </div>
-                        </Carousel>
+  
+    <div className="item">
+      <img src={meter1} alt="Image" />
+      <h5>Web Development</h5>
+    </div>
+    <div className="item">
+      <img src={meter2} alt="Image" />
+      <h5>Brand Identity</h5>
+    </div>
+    <div className="item">
+      <img src={meter3} alt="Image" />
+      <h5>Logo Design</h5>
+    </div>
+    <div className="item">
+      <img src={meter2} alt="Image" />
+      <h5>QA Testing</h5>
+    </div>
+    <div className="item">
+      <img src={meter3} alt="Image" />
+      <h5>Web Design</h5>
+    </div>
+    <div className="item">
+      <img src={meter2} alt="Image" />
+      <h5>Linux User</h5>
+    </div>
+    <div className="item">
+      <img src={meter1} alt="Image" />
+      <h5>Content Creator</h5>
+    </div>
+ 
+</Carousel>
+
                     </div>
                 </div>
             </div>
