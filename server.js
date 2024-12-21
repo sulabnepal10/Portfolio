@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/contact-form')
+mongoose.connect(process.env.MONGO_URI )
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log("Error connecting to MongoDB:", err));
 
@@ -42,7 +42,7 @@ app.post('/contact', async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
