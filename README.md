@@ -1,6 +1,8 @@
 # Personal Portfolio Website in React
 
-[View Portfolio](https://sulabnepal.com.np/).
+[View Live Portfolio](https://sulabnepal.com.np/).
+
+![App Screenshot](portfolio.png)
 
 
 
