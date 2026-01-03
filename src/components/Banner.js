@@ -1,78 +1,129 @@
-import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import headerImg from "../assets/img/header-img.svg";
-import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import CreativeCard from './CreativeCard';
+import InfoCard from './InfoCard';
+import Card from './Earth';
+import Switch from './switch';
+import { useState } from 'react';
 
 export const Banner = () => {
-  const [loopNum, setLoopNum] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [text, setText] = useState('');
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [index, setIndex] = useState(1);
-  const toRotate = [ "Web Developer", "Web Designer", "Content Creator" ];
-  const period = 2000;
+  const [isSwitchOn, setIsSwitchOn] = useState(false);
 
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
-
-    return () => { clearInterval(ticker) };
-  }, [text]);
-
-  const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
-
-    setText(updatedText);
-
-    if (isDeleting) {
-      setDelta(prevDelta => prevDelta / 2);
-    }
-
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setIndex(prevIndex => prevIndex - 1);
-      setDelta(period);
-    } else if (isDeleting && updatedText === '') {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      setIndex(1);
-      setDelta(500);
-    } else {
-      setIndex(prevIndex => prevIndex + 1);
-    }
-  }
+  const handleSwitchToggle = (e) => {
+    setIsSwitchOn(e.target.checked);
+  };
 
   return (
     <section className="banner" id="home">
       <Container>
-        <Row className="align-items-center">
-          <Col xs={12} md={6} xl={7}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Sulab Nepal.`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "Content Creator" ]'><span className="wrap">{text}</span></span></h1>
-                 
-                <a href="https://www.linkedin.com/in/sulab-nepal-470ab0239" target="_blank" rel="noopener noreferrer"><button>Let’s Connect <ArrowRightCircle size={25} /></button></a>
-              </div>}
-            </TrackVisibility>
-          </Col>
-          <Col xs={12} md={6} xl={5}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                  {/* Lazy load the header image with 'loading="lazy"' */}
-                  <img src={headerImg} alt="Header Img" loading="lazy"/>
-                </div>}
-            </TrackVisibility>
-          </Col>
+        <Row className="align-items-center justify-content-center g-4">
+          {isSwitchOn ? (
+            <>
+              <Col xs={12} lg={7} xl={8} className="d-flex justify-content-center justify-content-lg-start" style={{ zIndex: 10 }}>
+                <TrackVisibility once>
+                  {({ isVisible }) => (
+                    <div style={{
+                      opacity: isVisible ? 1 : 0,
+                      transform: isVisible ? 'translateX(0)' : 'translateX(-50px)',
+                      transition: 'all 0.8s ease',
+                      width: '100%'
+                    }}>
+                      <CreativeCard />
+                    </div>
+                  )}
+                </TrackVisibility>
+              </Col>
+
+              <Col xs={12} lg={5} xl={4} className="d-flex justify-content-center justify-content-lg-end" style={{ zIndex: 10 }}>
+                <div style={{ maxWidth: '420px', width: '100%' }}>
+                  <TrackVisibility once>
+                    {({ isVisible }) => (
+                      <div style={{
+                        opacity: isVisible ? 1 : 0,
+                        transform: isVisible ? 'translateX(0)' : 'translateX(50px)',
+                        transition: 'all 0.8s ease',
+                      }}>
+                        <InfoCard />
+                      </div>
+                    )}
+                  </TrackVisibility>
+                </div>
+              </Col>
+            </>
+          ) : (
+            <Col xs={12} className="text-center" style={{ zIndex: 10, color: '#fff' }}>
+            </Col>
+          )}
         </Row>
       </Container>
+
+      <div className="switch-responsive-container">
+        <Switch checked={isSwitchOn} onChange={handleSwitchToggle} />
+      </div>
+
+      <div className="earth-bg-container">
+        <Card />
+      </div>
+
+      <style>{`
+        .banner {
+          position: relative;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          padding: 100px 0;
+          overflow: hidden;
+        }
+
+        .switch-responsive-container {
+          position: absolute; 
+          bottom: 30px;
+          right: 30px;
+          z-index: 999;
+          transform: scale(0.7);
+          transform-origin: bottom right;
+          transition: all 0.4s ease;
+        }
+
+        .earth-bg-container {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 1;
+          opacity: 0.4;
+          pointer-events: none;
+        }
+
+        /* Responsive Logic */
+        @media (max-width: 991px) {
+         .switch-responsive-container {
+      top: 100px; 
+      bottom: auto; 
+      right: 15px;
+      /* Boost z-index to ensure it is clickable over other elements */
+      z-index: 9999; 
+      transform: scale(0.45); 
+      transform-origin: top right;
+    }
+
+    .banner {
+
+      padding: 180px 0 60px 0 !important;
+    }
+          
+          .earth-bg-container {
+            opacity: 0.3; /* Even lower opacity on mobile for readability */
+          }
+        }
+
+        @media (min-width: 992px) {
+          .earth-bg-container {
+            opacity: 1;
+          }
+        }
+      `}</style>
     </section>
-  )
-}
+  );
+};

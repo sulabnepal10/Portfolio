@@ -7,6 +7,14 @@ import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { Experience } from './components/Experience';
+import { ProjectsSection } from "./components/ProjectsSection";
+import { EducationSection } from "./components/EducationSection";
+import { ExperienceSection } from "./components/ExperienceSection";
+import Card from "./components/Earth";
+import Truck from "./components/Truck";
+import CreativeCard from './components/CreativeCard';
+import InstagramSection from './components/InstagramSection';
 
 function App() {
   return (
@@ -14,7 +22,12 @@ function App() {
       <NavBar />
       <Banner />
       <Skills />
-      <Projects />
+      <Experience />
+      <Truck />
+      <ProjectsSection />
+      <EducationSection />
+      <ExperienceSection />
+      <InstagramSection />
       <Contact />
       <Footer />
     </div>
