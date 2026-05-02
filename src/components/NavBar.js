@@ -36,9 +36,7 @@ export const NavBar = () => {
     <Router>
       <Navbar expand="md" className={scrolled ? "scrolled" : ""} style={{ zIndex: 1000 }}>
         <Container>
-          <Navbar.Toggle aria-controls="basic-navbar-nav">
-            <span className="navbar-toggler-icon"></span>
-          </Navbar.Toggle>
+
           <Navbar.Collapse id="basic-navbar-nav">
 
             <span className="navbar-text">
