@@ -1,0 +1,32 @@
+#box-figma {
+  transform: scale(1); /* Default scale */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+@media (max-width: 1200px) {
+  #box-figma {
+    transform: scale(0.9); /* Scale down to 90% on medium screens */
+  }
+}
+
+@media (max-width: 992px) {
+  #box-figma {
+    transform: scale(0.8); /* Scale down to 80% on smaller screens */
+  }
+  #box-figma #figny9-box{
+    transform: scale(0.97); 
+  }
+}
+
+@media (max-width: 768px) {
+  #box-figma {
+    transform: scale(0.7); /* Scale down to 70% on mobile screens */
+  }
+}
+
+@media (max-width: 480px) {
+  #box-figma {
+    transform: scale(0.6); /* Scale down to 60% on very small screens */
+  }
+
+}
