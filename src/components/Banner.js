@@ -1,36 +1,68 @@
-
 export function Banner() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-background">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 z-0 h-full w-full object-cover"
-      >
-        <source
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"
-          type="video/mp4"
-        />
-      </video>
+    <section id="home" className="hero">
+      <div className="hero-grid" aria-hidden="true" />
 
-      <main className="relative z-10 mx-auto flex min-h-[calc(100vh-100px)] flex-col items-center justify-center px-6 pb-40 pt-32 text-center">
-        <h1
-          className="animate-fade-rise max-w-7xl text-5xl font-normal leading-[0.95] tracking-[-2.46px] text-foreground sm:text-7xl md:text-8xl"
-          style={{ fontFamily: "'Instrument Serif', serif" }}
-        >
-          Architecting <em className="not-italic text-muted-foreground">intelligence</em> <br className="hidden md:block" />
-          into every <em className="not-italic text-muted-foreground">pixel and pulse.</em>
-        </h1>
+      <div className="hero-inner">
+        <div className="hero-copy">
+          <span className="eyebrow">Electronics &amp; Comm. Engineer — Full Stack + AI</span>
 
-        <p className="animate-fade-rise-delay mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Full Stack Engineer and AI enthusiast dedicated to building resilient digital ecosystems.
-          From scalable web architectures to IoT integration, I transform complex logic into
-          seamless human experiences.
-        </p>
+          <h1 className="hero-title">
+            Engineered for signal,
+            <br />
+            <em>built for people.</em>
+          </h1>
 
-      </main>
-    </div>
+          <p className="hero-sub">
+            I trace problems the way I was trained to trace circuits: find the source, follow
+            it end to end, close the loop. That instinct has shipped LLM-backed platforms,
+            RF-controlled hardware, and a reporting app that gave students a safe way to
+            speak up.
+          </p>
+
+          <div className="hero-actions">
+            <a href="#projects" className="hero-btn hero-btn--primary">View the work</a>
+            <a href="#connect" className="hero-btn hero-btn--ghost">Get in touch</a>
+          </div>
+        </div>
+
+        <div className="hero-diagram" aria-hidden="true">
+          <svg viewBox="0 0 640 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path className="trace trace-1" pathLength="1" d="M96,40 V120 H320 V180" stroke="var(--copper)" strokeWidth="2" />
+            <path className="trace trace-2" pathLength="1" d="M320,40 V180" stroke="var(--signal)" strokeWidth="2" />
+            <path className="trace trace-3" pathLength="1" d="M544,40 V120 H320 V180" stroke="var(--copper)" strokeWidth="2" />
+            <path className="trace trace-4" pathLength="1" d="M320,180 V280" stroke="var(--signal)" strokeWidth="2" />
+
+            <g className="node node-1">
+              <rect x="66" y="16" width="60" height="26" rx="4" stroke="var(--copper)" strokeWidth="1.5" fill="var(--panel)" />
+              <text x="96" y="33" textAnchor="middle" className="node-label">HW</text>
+            </g>
+            <g className="node node-2">
+              <rect x="290" y="16" width="60" height="26" rx="4" stroke="var(--signal)" strokeWidth="1.5" fill="var(--panel)" />
+              <text x="320" y="33" textAnchor="middle" className="node-label">SW</text>
+            </g>
+            <g className="node node-3">
+              <rect x="514" y="16" width="60" height="26" rx="4" stroke="var(--copper)" strokeWidth="1.5" fill="var(--panel)" />
+              <text x="544" y="33" textAnchor="middle" className="node-label">PEOPLE</text>
+            </g>
+
+            <g className="node node-out">
+              <circle cx="320" cy="180" r="5" fill="var(--paper)" />
+              <text x="320" y="210" textAnchor="middle" className="node-label node-label--out">SULAB NEPAL</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div className="hero-marquee" aria-hidden="true">
+        <div className="hero-marquee-track">
+          {Array(2).fill(0).map((_, i) => (
+            <span key={i}>
+              REACT&nbsp;&middot;&nbsp;NODE.JS&nbsp;&middot;&nbsp;PYTHON&nbsp;&middot;&nbsp;LLM PIPELINES&nbsp;&middot;&nbsp;IOT&nbsp;&middot;&nbsp;RF SYSTEMS&nbsp;&middot;&nbsp;SIGNAL PROCESSING&nbsp;&middot;&nbsp;
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
