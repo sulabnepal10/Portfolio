@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Lottie from 'react-lottie';
-import contactAnimation from '../assets/img/Animation.json';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import '../App.css';
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -58,25 +55,35 @@ export const Contact = () => {
     }
   };
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: contactAnimation,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-    },
-    speed: 0.1,
-  };
-
   return (
     <section className="contact" id="connect">
+      <span className="sheet-tag sheet-tag--dark">SHEET 08 / CONTACT</span>
       <Container>
         <Row className="align-items-center">
           <Col xs={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                  <Lottie options={defaultOptions} height={null} width="100%" />
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  <div className="status-panel">
+                    <div className="status-panel-row">
+                      <span className="status-dot" />
+                      <span>Open to full-stack, AI &amp; systems roles</span>
+                    </div>
+                    <dl className="status-panel-facts">
+                      <div>
+                        <dt>Location</dt>
+                        <dd>Kathmandu, Nepal</dd>
+                      </div>
+                      <div>
+                        <dt>Response time</dt>
+                        <dd>Usually within 48 hrs</dd>
+                      </div>
+                      <div>
+                        <dt>Currently</dt>
+                        <dd>Full Stack Developer, Clairify.ai</dd>
+                      </div>
+                    </dl>
+                  </div>
                 </div>
               }
             </TrackVisibility>
@@ -85,7 +92,9 @@ export const Contact = () => {
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <h2>Get In Touch</h2>
+                  <span className="eyebrow eyebrow--dark">Contact</span>
+                  <h2>Let's build something</h2>
+                  <p className="contact-lede">Open to full-stack, AI, and systems roles — or just a good problem to think through.</p>
                   <form onSubmit={handleSubmit}>
                     <Row>
                       <Col xs={12} sm={6} className="px-1">

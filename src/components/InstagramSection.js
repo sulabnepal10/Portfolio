@@ -29,15 +29,18 @@ const InstagramSection = () => {
   ];
 
   return (
-    <SectionWrapper>
+    <SectionWrapper id="writing">
+      <span className="sheet-tag">SHEET 07 / DISPATCH</span>
       <div className="container">
         <div className="header">
+          <span className="eyebrow">Writing</span>
           <h2 className="section-title">
-            Knowledge Sharing on Instagram
+            Knowledge sharing on Instagram
           </h2>
           <p className="section-description">
-            I share bite-sized, informative content about Linux history, distributions, kernel concepts, and the open-source journey on Instagram.
-            Here's a glimpse of my recent posts — follow for daily tech insights!
+            Bite-sized, informative posts about Linux history, distributions, and kernel
+            concepts — here's a glimpse of the recent ones. Follow along for daily tech
+            insights.
           </p>
         </div>
         <div className="cards-grid">
@@ -80,9 +83,9 @@ const InstagramIcon = () => (
 );
 
 const SectionWrapper = styled.section`
-  padding: 100px 20px;
-  background: #000000; /* Pure black like IG dark mode */
-  color: #ffffff;
+  padding: 120px 20px;
+  background: var(--ink);
+  color: var(--paper);
 
   .container {
     max-width: 1200px;
@@ -91,24 +94,25 @@ const SectionWrapper = styled.section`
   }
 
   .header {
-    margin-bottom: 60px;
+    max-width: 680px;
+    margin: 0 auto 60px;
+  }
+
+  .eyebrow {
+    justify-content: center;
   }
 
   .section-title {
-    font-size: 40px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--paper);
   }
 
   .section-description {
-    font-size: 18px;
-    color: #a8a8a8;
-    max-width: 800px;
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 680px;
     margin: 0 auto;
     line-height: 1.6;
   }
@@ -124,20 +128,22 @@ const SectionWrapper = styled.section`
   .view-more-btn {
     display: inline-flex;
     align-items: center;
-    padding: 14px 36px;
-    background: linear-gradient(45deg, #fa7e1e, #d62976, #962fbf);
-    color: white;
-    font-size: 18px;
-    font-weight: 700;
-    border-radius: 50px;
+    padding: 14px 32px;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    color: var(--paper);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    border-radius: 3px;
     text-decoration: none;
-    transition: all 0.4s ease;
-    box-shadow: 0 8px 25px rgba(214, 41, 118, 0.4);
+    transition: all 0.25s ease;
   }
 
   .view-more-btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 35px rgba(214, 41, 118, 0.6);
+    border-color: var(--copper);
+    color: var(--copper);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 992px) {

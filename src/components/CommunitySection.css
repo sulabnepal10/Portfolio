@@ -1,0 +1,136 @@
+.community {
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.community-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--signal);
+  margin-bottom: 10px;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.community-card {
+  background: var(--panel-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.community-card.featured {
+  grid-column: span 2;
+}
+
+.community-card-head h3 {
+  font-size: 1.3rem;
+  color: var(--paper);
+  margin-bottom: 14px;
+}
+
+.community-card p {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  text-align: left;
+  max-width: none;
+  margin: 0;
+}
+
+.community-card blockquote {
+  margin: 20px 0 0;
+  padding: 16px 20px;
+  border-left: 2px solid var(--copper);
+  background: var(--copper-soft);
+  color: var(--paper);
+  font-style: italic;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  border-radius: 0 4px 4px 0;
+}
+
+.certificate-plate {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  background: var(--panel-raised);
+  border: 1px dashed var(--line-strong);
+  border-radius: 4px;
+  padding: 32px;
+}
+
+.certificate-seal {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+}
+
+.certificate-body h3 {
+  font-size: 1.3rem;
+  color: var(--paper);
+  margin-bottom: 12px;
+}
+
+.certificate-body > p {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  text-align: left;
+  max-width: 640px;
+  margin: 0 0 24px;
+}
+
+.certificate-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.certificate-facts dt {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.certificate-facts dd {
+  margin: 0;
+  color: var(--paper);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 992px) {
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+  .community-card.featured {
+    grid-column: span 1;
+  }
+  .certificate-facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .certificate-plate {
+    flex-direction: column;
+    padding: 24px;
+  }
+  .certificate-facts {
+    grid-template-columns: 1fr;
+  }
+}

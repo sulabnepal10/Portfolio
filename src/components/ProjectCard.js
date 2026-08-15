@@ -5,90 +5,104 @@ import styled from "styled-components";
 const StyledWrapper = styled.div`
   .article-wrapper {
     width: 100%;
-    max-width: 350px;
-    transition: 0.15s all ease-in-out;
-    border-radius: 10px;
-    padding: 5px;
-    border: 4px solid transparent;
-    cursor: pointer;
-    background-color: white;
-  }
-  .article-wrapper:hover {
-    box-shadow: 10px 10px 0 #4e84ff, 20px 20px 0 #4444bd;
-    border-color: #0578c5;
-    transform: translate(-20px, -20px);
-  }
-  .article-wrapper:active {
-    box-shadow: none;
-    transform: translate(0, 0);
-  }
-  .project-info {
-    padding: 20px 10px 15px;
+    max-width: 380px;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    transition: 0.2s ease-in-out;
+    border-radius: 4px;
+    border: 1px solid var(--line-strong);
+    background: var(--panel);
+    cursor: pointer;
+  }
+  .article-wrapper:hover {
+    transform: translateY(-6px);
+    border-color: var(--copper);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  }
+  .article-wrapper:active {
+    transform: translateY(-2px);
+  }
+  .project-info {
+    padding: 22px 22px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
   }
   .flex-pr {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 12px;
   }
   .project-title {
-    font-size: 1.5em; /* Reduced from 1.8em */
+    font-family: var(--font-display);
+    font-size: 1.25rem;
     margin: 0;
     font-weight: 600;
-    line-height: 1.2;
-    color: black;
-    /* Removed nowrap + ellipsis to allow wrapping */
+    line-height: 1.25;
+    color: var(--paper);
   }
   .project-description {
-    font-size: 0.95em;
-    color: #555;
+    font-size: 0.92em;
+    color: var(--muted);
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.5;
   }
   .types {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
   }
   .project-type {
-    background: #b2b2fd;
-    color: #1a41cd;
-    font-weight: bold;
+    font-family: var(--font-mono);
+    background: var(--copper-soft);
+    color: var(--copper);
+    font-weight: 500;
     padding: 0.3em 0.7em;
-    border-radius: 15px;
-    font-size: 12px;
-    letter-spacing: -0.6px;
+    border-radius: 3px;
+    font-size: 11px;
+    letter-spacing: 0.02em;
   }
   .project-hover {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    padding: 9px;
-    transition: all 0.3s ease;
+    border-radius: 4px;
+    width: 36px;
+    height: 36px;
+    padding: 7px;
+    border: 1px solid var(--line-strong);
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    color: var(--muted);
   }
   .article-wrapper:hover .project-hover {
     transform: rotate(-45deg);
-    background-color: #a6c2f0;
+    background-color: var(--signal-soft);
+    border-color: var(--signal);
+    color: var(--signal);
   }
   .container-project {
     width: 100%;
     height: 200px;
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
-    background-color: #e0e0e0;
+    background-color: var(--panel-raised);
+    border-bottom: 1px solid var(--line-strong);
+    position: relative;
   }
-  /* Modal styles remain the same */
+  .container-project::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(8, 20, 16, 0.55));
+  }
   .image-modal-backdrop {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.85);
+    background: rgba(4, 10, 8, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -102,22 +116,25 @@ const StyledWrapper = styled.div`
   .modal-image {
     max-width: 100%;
     max-height: 85vh;
-    border-radius: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--line-strong);
   }
   .modal-close {
     position: absolute;
-    top: -15px;
-    right: -15px;
+    top: -18px;
+    right: -18px;
     width: 40px;
     height: 40px;
-    background: white;
+    background: var(--paper);
+    color: var(--ink);
     border: none;
     border-radius: 50%;
-    font-size: 28px;
+    font-size: 24px;
+    line-height: 1;
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   }
-    .video-modal {
+  .video-modal {
     max-width: 90%;
     max-height: 90%;
     position: relative;
@@ -127,7 +144,8 @@ const StyledWrapper = styled.div`
     max-width: 800px;
     height: auto;
     max-height: 80vh;
-    border-radius: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--line-strong);
   }
 `;
 
@@ -177,8 +195,8 @@ export const ProjectCard = ({
               <div className="project-hover">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="2em"
-                  height="2em"
+                  width="1.4em"
+                  height="1.4em"
                   viewBox="0 0 24 24"
                   strokeWidth="2"
                   stroke="currentColor"
@@ -190,13 +208,13 @@ export const ProjectCard = ({
               </div>
             </div>
 
+            <p className="project-description">{description}</p>
+
             <div className="types">
               {badges.map((badge, i) => (
-                <span key={i} className="project-type">• {badge}</span>
+                <span key={i} className="project-type">{badge}</span>
               ))}
             </div>
-
-            <p className="project-description">{description}</p>
           </div>
         </article>
       </StyledWrapper>
@@ -205,7 +223,7 @@ export const ProjectCard = ({
         <div className="image-modal-backdrop" onClick={closeModal}>
           <div className={modalType === "video" ? "video-modal" : "image-modal"} onClick={(e) => e.stopPropagation()}>
             {modalType === "image" && (
-              <img src={demoImage} alt={`${title} Demo`} className="modal-image" />
+              <img src={demoImage} alt={`${title} demo`} className="modal-image" />
             )}
             {modalType === "video" && (
               <video className="modal-video" controls autoPlay loop muted>
@@ -213,7 +231,7 @@ export const ProjectCard = ({
                 Your browser does not support the video tag.
               </video>
             )}
-            <button className="modal-close" onClick={closeModal}>
+            <button className="modal-close" onClick={closeModal} aria-label="Close">
               ×
             </button>
           </div>

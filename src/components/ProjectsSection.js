@@ -66,16 +66,18 @@ export const ProjectsSection = () => {
 
     return (
         <section className="projects-section" id="projects">
+            <span className="sheet-tag">SHEET 04 / BUILD LOG</span>
             <Container>
-                <TrackVisibility>
+                <TrackVisibility partialVisibility>
                     {({ isVisible }) => (
                         <div className={isVisible ? "animate__animated animate__fadeInUp" : ""}>
-                            <h2 className="section-title">Projects</h2>
-                            <p className="section-subtitle">
-                                Here are some of my favorite projects I've built and deployed.
-                            </p>
+                            <div className="sheet-head">
+                                <span className="eyebrow">Projects</span>
+                                <h2>Things I've shipped and deployed</h2>
+                                <p>Full-stack platforms, AI tooling, and the embedded system that started it all.</p>
+                            </div>
 
-                            <Row className="g-4 mt-4 justify-content-center">
+                            <Row className="g-4 justify-content-center">
                                 {projects.map((project, index) => (
                                     <Col key={index} xs={12} md={6} lg={4} className="d-flex justify-content-center">
                                         <ProjectCard {...project} />
